@@ -1,1 +1,3 @@
-__author__ = 'mnowotka'
+__author__ = 'mnowotka, liwt31'
+
+from .ikey import inchi_to_inchikey

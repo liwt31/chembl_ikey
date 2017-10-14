@@ -1,7 +1,7 @@
 from itertools import product
 from string import ascii_uppercase
 
-__author__ = 'mnowotka'
+__author__ = 'mnowotka, liwt31'
 
 t26 = [t for t in map(''.join, product(ascii_uppercase, repeat=3)) if t[0] != 'E' and (t < 'TAA' or t > 'TTV')]
 d26 = list(map(''.join, product(ascii_uppercase, repeat=2)))

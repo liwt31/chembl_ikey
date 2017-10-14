@@ -1,7 +1,7 @@
 import unittest
-from chembl_ikey.ikey import inchi_to_inchikey
+from chembl_ikey import inchi_to_inchikey
 
-__author__ = 'mnowotka'
+__author__ = 'mnowotka, weitangli'
 
 class TestIKey(unittest.TestCase):
     def test_morphineInChIKey(self):

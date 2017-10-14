@@ -12,9 +12,9 @@ except ImportError:
 
 setup(
     name='chembl_ikey',
-    version='0.0.1',
-    author='Michal Nowotka',
-    author_email='mnowotka@ebi.ac.uk',
+    version='0.0.2',
+    author='Michal Nowotka, Weitang Li',
+    author_email='mnowotka@ebi.ac.uk, liwt31@163.com',
     description='Pure python implementation of InChiKey generation algorithm based on the original C code',
     url='https://www.ebi.ac.uk/chembl/',
     license='CC BY-SA 3.0',

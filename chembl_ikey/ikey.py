@@ -1,9 +1,8 @@
-#from __future__ import absolute_import
 import hashlib
 from .ikey_base26 import base26_triplet_1, base26_triplet_2, base26_triplet_3, base26_triplet_4, \
                          base26_dublet_for_bits_56_to_64, base26_dublet_for_bits_28_to_36
 
-__author__ = 'mnowotka'
+__author__ = 'mnowotka, liwt31'
 
 INCHI_STRING_PREFIX = "InChI="
 LEN_INCHI_STRING_PREFIX = len(INCHI_STRING_PREFIX)
@@ -73,9 +72,11 @@ def inchi_to_inchikey(szINCHISource):
                 return None
             end = idx
             break
+    else:
+        end = slen
 
-    if end == (slen - 1):
-        end += 1
+    #if end == (slen - 1):
+    #    end += 1
 
     if not proto:
         smajor = aux[:end]
@@ -112,4 +113,6 @@ def inchi_to_inchikey(szINCHISource):
                                 base26_triplet_4(digest_major) + base26_dublet_for_bits_56_to_64(digest_major)
     minor = base26_triplet_1(digest_minor) + base26_triplet_2(digest_minor) + \
                                 base26_dublet_for_bits_28_to_36(digest_minor)
+    if szINCHISource == 'InChI=1S/C23H24N6O5S2/c1-34-27-16(14-11-36-23(24)25-14)19(30)26-17-20(31)29-18(22(32)33)13(10-35-21(17)29)9-28-8-4-6-12-5-2-3-7-15(12)28/h4,6,8,11,17,21H,2-3,5,7,9-10H2,1H3,(H3-,24,25,26,30,32,33)':
+        pass
     return "%s-%s%s%s-%s" % (major, minor, flag, flagver, flagproto)
