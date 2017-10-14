@@ -19,7 +19,7 @@ setup(
     url='https://www.ebi.ac.uk/chembl/',
     license='CC BY-SA 3.0',
     packages=['chembl_ikey'],
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     include_package_data=False,
     classifiers=['Development Status :: 2 - Pre-Alpha',
                  'Intended Audience :: Developers',

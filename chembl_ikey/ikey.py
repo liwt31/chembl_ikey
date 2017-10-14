@@ -1,29 +1,23 @@
-__author__ = 'mnowotka'
-
+#from __future__ import absolute_import
 import hashlib
-from chembl_ikey import ikey_base26
-from ikey_base26 import base26_triplet_1
-from ikey_base26 import base26_triplet_2
-from ikey_base26 import base26_triplet_3
-from ikey_base26 import base26_triplet_4
-from ikey_base26 import base26_dublet_for_bits_56_to_64
-from ikey_base26 import base26_dublet_for_bits_28_to_36
+from .ikey_base26 import base26_triplet_1, base26_triplet_2, base26_triplet_3, base26_triplet_4, \
+                         base26_dublet_for_bits_56_to_64, base26_dublet_for_bits_28_to_36
 
-#-----------------------------------------------------------------------------------------------------------------------
+__author__ = 'mnowotka'
 
 INCHI_STRING_PREFIX = "InChI="
 LEN_INCHI_STRING_PREFIX = len(INCHI_STRING_PREFIX)
 
-#-----------------------------------------------------------------------------------------------------------------------
 
 def get_sha256(text):
     hash = hashlib.sha256()
-    hash.update(text)
-    return hash.digest()
+    hash.update(text.encode('ascii'))
+    digest = hash.digest()
+    digest_bytes_list = [ord(digest_byte) for digest_byte in digest] if isinstance(digest, str) else list(digest)
+    return digest_bytes_list
 
-#-----------------------------------------------------------------------------------------------------------------------
 
-def inchiToInchiKey(szINCHISource):
+def inchi_to_inchikey(szINCHISource):
 
     flagstd = 'S'
     flagnonstd = 'N'
@@ -119,8 +113,3 @@ def inchiToInchiKey(szINCHISource):
     minor = base26_triplet_1(digest_minor) + base26_triplet_2(digest_minor) + \
                                 base26_dublet_for_bits_28_to_36(digest_minor)
     return "%s-%s%s%s-%s" % (major, minor, flag, flagver, flagproto)
-
-
-#-----------------------------------------------------------------------------------------------------------------------
-
-
