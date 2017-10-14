@@ -4,10 +4,13 @@ This is pure python implementation of InChiKey generation algorithm based on the
 
 This is a improved version of the chembl_ikey package developed at Chembl group, EMBL-EBI, Cambridge, UK.
 
-The original version is only compatible with python2. And this version could run with python2 and python3.
+The original version is only compatible with python2, and this version could run with python2 or python3.
 
 ## How to use
 
 1. Download and unzip (or clone) the package
-+ Install the package by `pip install setup.py`
-+ 
++ Install the package by using `pip install setup.py`
++ Import the interface by using `from chembl_ikey.ikey import inchi_to_inchikey`
++ Convert inchi to inchikey by calling `inchi_to_inchikey(inchi)`
+
+A sample of how to use the code could be found in chembl_ikey/test.py 
