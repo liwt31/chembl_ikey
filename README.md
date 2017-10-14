@@ -9,8 +9,8 @@ The original version is only compatible with python2, and this version could run
 ## How to use
 
 1. Download and unzip (or clone) the package
-+ Install the package by using `pip install setup.py`
-+ Import the interface by using `from chembl_ikey.ikey import inchi_to_inchikey`
-+ Convert inchi to inchikey by calling `inchi_to_inchikey(inchi)`
+2. Install the package by using `pip install setup.py`
+3. Import the interface by using `from chembl_ikey.ikey import inchi_to_inchikey`
+4. Convert inchi to inchikey by calling `inchi_to_inchikey(inchi)`
 
 A sample of how to use the code could be found in chembl_ikey/test.py 
